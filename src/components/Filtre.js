@@ -51,3 +51,4 @@ const Filtre = ({ onFilterChange, filterTitle, filterRate }) => {
 
 export default Filtre;
 
+

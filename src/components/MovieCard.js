@@ -1,8 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './MovieCard.css';
 
 const MovieCard = ({ movie }) => {
-  const { title, description, posterUrl, rate } = movie;
+  const { title, description, posterUrl, rate, id } = movie;
+  const navigate = useNavigate();
 
   // Générer les étoiles pour la note
   const renderStars = (rating) => {
@@ -17,8 +19,12 @@ const MovieCard = ({ movie }) => {
     return stars;
   };
 
+  const handleClick = () => {
+    navigate(`/movie/${id}`);
+  };
+
   return (
-    <div className="movie-card">
+    <div className="movie-card" onClick={handleClick}>
       <div className="movie-poster">
         <img src={posterUrl} alt={title} />
       </div>
@@ -35,4 +41,5 @@ const MovieCard = ({ movie }) => {
 };
 
 export default MovieCard;
+
 
